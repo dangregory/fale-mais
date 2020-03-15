@@ -1,18 +1,3 @@
-# Fale Mais
-
-## Rodando o projeto
-
-Execute o comando `npm install` para instalar as dependências;
-Execute `ng serve` para iniciar o projeto em http://localhost:4200/.
-
-## Teste Automatizado
-
-Para rodar o teste, execute `ng test` no terminal
-O Jasmine será executado em http://localhost:9876/#
-
-
-
-
 ## Fale Mais
 FaleMais é o novo produto da CI&T Telecomunicações. Com ele, o cliente adquire um plano e pode falar de graça até um determinado tempo (em minutos) e só paga os minutos excedentes. Dessa forma, foi criada uma página web onde o cliente pode calcular o valor da ligação. Ali, ele pode escolher os códigos das cidades de origem e destino, o tempo da ligação em minutos e comparar os planos FaleMais. O sistema mostrar também os valores da ligação sem nenhum plano. 
 
