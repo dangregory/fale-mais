@@ -1,0 +1,212 @@
+//mixins
+@mixin centered-element() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@mixin border($direction, $color) {
+    border-#{$direction}: 1px solid $color;
+}
+
+//variables
+$base-color: darkgrey;
+$base-color-lighter: lightgrey;
+$font-size-base: 18px;
+$font-size-mid: 14px;
+$font-size-small: 10px;
+$font-size-big: 30px;
+
+#app-container {
+    margin-top: 3%;
+
+    h2 {
+        color: $base-color;
+    }
+
+    .logo-container {
+        @include centered-element();
+        .logo {
+            max-height: 120px;
+            @media screen and (max-width: 768px) {
+                max-height: 80px;
+            }
+        }
+    }
+
+  /* plan selection title */
+    .plan-selection-title {
+        @include centered-element();
+        h1 {
+            font-weight: lighter;
+            color: $base-color;
+            @media screen and (max-width: 768px) {
+                font-size: $font-size-base;
+            }
+        }
+    }
+
+  /* plan selection */
+    #plan-selection {
+        @media screen and (min-width: 768px) {
+            @include centered-element();
+            .plan-input-container {
+                flex-direction: row;
+            }
+        }
+        
+        flex-direction: column;
+
+        .plan-input-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 28%;
+
+            .input-box {
+                display: flex;
+                flex-direction: column;
+                .label-wrapp {
+                    text-align: center;
+                    font-size: smaller;
+                    color: $base-color;
+                    @media screen and (max-width: 768px) {
+                        text-align: left;
+                    }
+                }
+                ::placeholder {
+                    color:$base-color-lighter;
+                }
+                input {
+                    max-width: 80px;
+                    height: 29px;
+                    background-color: gray;
+                    color: white;
+                    font-weight: 400;
+                    font-size: 20px;
+                    text-align: center;
+                    border: none;
+                }
+                button {
+                    background-color: gray;
+                    color: #fff;
+                    border: none;
+                    margin: 4px;
+                    font-size: $font-size-base;
+                    cursor: pointer;
+                }
+                .inline-content {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: flex-end;
+                }
+            }
+
+            .simulation-button {
+                display: flex;
+                align-self: flex-end;
+                button {
+                    height: 35px;
+                }
+            }
+        }
+        @media screen and (max-width: 798px){
+            .plan-input-container {
+                flex-direction: column;
+                margin: 0 auto;
+            }
+        }
+    }
+    #plan-selection:after {
+        content: "";
+        display: block;
+        margin: 0 auto;
+        width: 80%;
+        padding-top: 65px;
+        @include border(bottom, $base-color-lighter);
+    }
+    
+
+    #plan-calculation-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+        @media screen and (max-width: 768px){
+            width: 90%;
+        }
+
+        .price-output {
+            .currency { font-size: $font-size-small !important; }
+            .price { font-size: $font-size-big !important; }
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            @media screen and (max-width: 768px){
+                .currency { font-size: $font-size-small !important; }
+                .price { font-size: $font-size-base !important; }
+            }
+        }
+
+        .plan-calculation-output {
+            @include centered-element();
+
+            justify-content: space-between;
+            margin-top: 3%;
+            width: 50%;
+
+            @media screen and (max-width: 768px){
+                width: 100%;
+            }
+
+            .simulation-output {
+                display: flex;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                margin: 5px;
+                height: 85px;
+                width: 25%;
+
+                .simulation-container {
+                    display: flex;
+                    flex-direction: column;
+
+                    .plan-value-detail {
+                        @media screen and (max-width: 768px){
+                            min-height: 38px;
+                        }
+                        margin: 10px;
+                    }
+                }
+            }
+            .simulation-output:after {
+                content: "";
+                display: block;
+                margin: 0 auto;
+                height: 30px;
+                @include border(right, $base-color-lighter);
+            }
+            .simulation-output:last-child:after {
+                border-right: none;
+            }
+        }
+    }
+
+    footer {
+        @include centered-element();
+        flex-direction: column;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: $base-color;
+    }
+    footer:before {
+        content: "";
+        display: block;
+        margin: 0 auto;
+        width: 90%;
+        padding-bottom: 10px;
+        @include border(top, $base-color-lighter);
+    }
+}

@@ -1,0 +1,7 @@
+<mat-dialog-content>
+  <ul class="citycode-list-selection">
+    <li (click)="selectCityCode(code)" *ngFor="let code of data.cityCodes">
+      {{ code.ddd }} {{ code.city }}
+    </li>
+  </ul>
+</mat-dialog-content>
